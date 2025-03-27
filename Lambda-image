@@ -1,0 +1,13 @@
+FROM public.ecr.aws/lambda/python:3.12
+
+# Ustawienie katalogu roboczego
+WORKDIR /var/task
+
+# Kopiowanie i instalacja zależności
+COPY requirements.txt .
+RUN pip3 install --no-cache-dir -r requirements.txt
+
+# Kopiowanie kodu funkcji i skryptów
+COPY lambda_function.py tm_score_lambda.py lddt-lambda.py mcq.py rmsd.py torsion.py inf.py ./
+
+CMD ["lambda_function.lambda_handler"]

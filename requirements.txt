@@ -1,0 +1,4 @@
+numpy==1.26.2
+biopython>=1.82
+requests>=2.31.0
+rnapolis>=0.4.6
